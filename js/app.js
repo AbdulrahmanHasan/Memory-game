@@ -64,7 +64,7 @@ function shuffle(array) {
 document.body.onload = startGame();
 
 
-// to start a new play
+// @description to start a new play
 function startGame(){
     // shuffle deck
     cards = shuffle(cards);
@@ -94,7 +94,7 @@ function startGame(){
 }
 
 
-//toggles open and show class to display cards
+//@description toggles open and show class to display cards
 var displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
@@ -102,7 +102,7 @@ var displayCard = function (){
 };
 
 
-//add opened cards to OpenedCards list and check if cards are match or not
+//@description add opened cards to OpenedCards list and check if cards are match or not
 function cardOpen() {
     openedCards.push(this);
     var len = openedCards.length;
@@ -117,7 +117,7 @@ function cardOpen() {
 };
 
 
-//when cards match
+//@description when cards match
 function matched(){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
@@ -127,7 +127,7 @@ function matched(){
 }
 
 
-// description when cards don't match
+// @description when cards don't match
 function unmatched(){
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
@@ -141,7 +141,7 @@ function unmatched(){
 }
 
 
-//disable cards temporarily
+//@description disable cards temporarily
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
@@ -149,7 +149,7 @@ function disable(){
 }
 
 
-//enable cards and disable matched cards
+//@description enable cards and disable matched cards
 function enable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disabled');
@@ -160,7 +160,7 @@ function enable(){
 }
 
 
-//count player's moves
+//@description count player's moves
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
@@ -189,7 +189,7 @@ function moveCounter(){
 }
 
 
-//game timer
+//@description game timer
 var second = 0, minute = 0; hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
@@ -209,7 +209,7 @@ function startTimer(){
 }
 
 
-//congratulations when all cards match, show modal and moves, time and rating
+//@description congratulations when all cards match and show modal and moves, time and rating
 function congratulations(){
     if (matchedCard.length == 16){
         clearInterval(interval);
@@ -232,7 +232,7 @@ function congratulations(){
 }
 
 
-//close icon on modal
+//@description close icon on modal
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
@@ -241,7 +241,7 @@ function closeModal(){
 }
 
 
-// for user to play Again
+//@description for user to play Again
 function playAgain(){
     modal.classList.remove("show");
     startGame();
@@ -259,11 +259,11 @@ for (var i = 0; i < cards.length; i++){
 
 /*
  * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)   done
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) done
- *  - if the list already has another card, check to see if the two cards match done
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) done
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one) done
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one) done
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one) done
+ *  - display the card's symbol (put this functionality in another function that you call from this one)   (----->done<-----)
+ *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one) (----->done<-----)
+ *  - if the list already has another card, check to see if the two cards match (----->done<-----)
+ *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one) (----->done<-----)
+ *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one) (----->done<-----)
+ *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one) (----->done<-----)
+ *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one) (----->done<-----)
  */
